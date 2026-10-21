@@ -1,0 +1,14 @@
+{
+  "name": "quan-ly-quan-billiards",
+  "version": "1.0.0",
+  "description": "Backend quan ly quan Billiards",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mssql": "^11.0.1",
+    "cors": "^2.8.5"
+  }
+}
