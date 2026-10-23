@@ -1,1 +1,29 @@
+# Thu vien Node.js
+node_modules/
 
+# Thong tin cau hinh bi mat
+.env
+.env.*
+!.env.example
+
+# File ghi log
+*.log
+logs/
+
+# File he thong
+.DS_Store
+Thumbs.db
+
+# File tam
+*.tmp
+*.temp
+
+# Ket qua kiem thu
+coverage/
+
+# File cau hinh VS Code
+.vscode/
+
+# File tai len cua nguoi dung
+tepTaiLen/*
+!tepTaiLen/README.md
