@@ -1,0 +1,27 @@
+---
+name: Báo cáo lỗi
+about: Báo cáo lỗi của hệ thống quản lý quán Billiards
+title: "[BUG] "
+labels: bug
+assignees: ""
+---
+
+# BÁO CÁO LỖI HỆ THỐNG
+
+## 1. Mô tả lỗi
+Mô tả lỗi gặp phải khi sử dụng website.
+
+## 2. Các bước gây ra lỗi
+1. Truy cập website
+2. Chọn chức năng
+3. Thực hiện thao tác
+4. Quan sát lỗi
+
+## 3. Kết quả mong đợi
+Mô tả kết quả hệ thống cần thực hiện.
+
+## 4. Hình ảnh minh họa
+Đính kèm ảnh nếu có.
+
+## 5. Ghi chú
+Thông tin bổ sung về lỗi.
