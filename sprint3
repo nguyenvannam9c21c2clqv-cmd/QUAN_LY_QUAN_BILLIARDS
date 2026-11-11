@@ -1,0 +1,71 @@
+SPRINT 3: Xây dựng chức năng nghiệp vụ Billiards
+Tuần 4–5
+Giai đoạn phát triển nghiệp vụ chính
+
+1. Mục tiêu
+
+Xây dựng các chức năng quan trọng nhất của hệ thống, phục vụ quá trình khách đến chơi, sử dụng dịch vụ và thanh toán.
+
+2. Công việc chi tiết
+STT	Công việc	Nội dung thực hiện
+1	Đặt bàn	Chọn bàn, khách hàng và thời gian đặt
+2	Kiểm tra bàn	Kiểm tra bàn có bị trùng lịch hay không
+3	Bắt đầu chơi	Ghi nhận thời gian bắt đầu
+4	Theo dõi giờ	Hiển thị thời gian chơi của khách
+5	Kết thúc chơi	Ghi nhận thời gian kết thúc
+6	Tính tiền bàn	Tính tiền theo thời gian và đơn giá
+7	Quản lý dịch vụ	Quản lý đồ uống và các dịch vụ đi kèm
+8	Gọi dịch vụ	Thêm dịch vụ và số lượng vào phiên chơi
+9	Lập hóa đơn	Tổng hợp tiền bàn và tiền dịch vụ
+10	Thanh toán	Ghi nhận phương thức và trạng thái thanh toán
+
+3. Quy trình hoạt động thực tế
+Khách hàng đến quán
+
+Nhân viên chọn bàn
+
+Bắt đầu tính giờ chơi
+
+Khách sử dụng đồ uống, dịch vụ
+
+Kết thúc phiên chơi
+
+Hệ thống tính tổng hóa đơn
+
+Khách thanh toán
+
+Hoàn tất
+Cập nhật trạng thái bàn và hóa đơn
+
+
+4. Ví dụ tính tiền
+
+Giả sử:
+- Giá bàn: 60.000 đồng/giờ.
+- Thời gian chơi: 2 giờ.
+- Nước uống: 3 chai, mỗi chai 15.000 đồng.
+Khoản thu	Thành tiền
+Tiền bàn	120.000đ
+Nước uống	45.000đ
+Tổng cộng	165.000đ
+
+Công thức:
+\[
+\text{Tổng tiền}=\text{Tiền bàn}+\text{Tiền dịch vụ}
+\]
+
+Đây là ví dụ minh họa; cách làm tròn thời gian và đơn giá cần được nhóm thống nhất.
+
+5. Sản phẩm bàn giao
+- Chức năng đặt bàn.
+- Chức năng bắt đầu và kết thúc phiên chơi.
+- Chức năng theo dõi thời gian chơi.
+- Chức năng tính tiền bàn.
+- Chức năng quản lý đồ uống và dịch vụ.
+- Chức năng lập hóa đơn và thanh toán.
+6. Tiêu chí hoàn thành
+- Không thể đặt trùng bàn trong cùng khoảng thời gian.
+- Không thể mở hai phiên chơi đồng thời trên một bàn.
+- Tính tiền đúng theo thời gian và đơn giá đã cấu hình.
+- Hóa đơn hiển thị đúng tiền bàn, tiền dịch vụ và tổng tiền.
+- Không cho thanh toán trùng hóa đơn đã hoàn tất.
