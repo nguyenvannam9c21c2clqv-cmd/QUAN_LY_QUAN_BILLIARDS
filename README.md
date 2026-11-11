@@ -1,118 +1,214 @@
-QUAN_LY_QUAN_BILLIARDS
+ QUẢN LÝ QUÁN BILLIARDS
 
-Website quản lý quán Billiards.
+Website quản lý hoạt động kinh doanh quán Billiards, hỗ trợ quản lý bàn chơi, khách hàng, nhân viên, đặt bàn, giờ chơi, hóa đơn, dịch vụ và thống kê doanh thu.
 
-1. Chức năng
+ Các chức năng chính
 
-* Quản lý bàn Billiards: thêm, sửa, xóa và theo dõi trạng thái bàn.
-* Quản lý khách hàng.
-* Quản lý nhân viên.
-* Quản lý đặt bàn.
-* Quản lý giờ chơi và tính tiền theo thời gian sử dụng bàn.
-* Quản lý hóa đơn thanh toán.
-* Quản lý đồ uống và dịch vụ đi kèm.
-* Thống kê doanh thu và báo cáo hoạt động kinh doanh.
+Hệ thống được xây dựng nhằm hỗ trợ chủ quán và nhân viên quản lý hoạt động kinh doanh một cách thuận tiện, chính xác và hiệu quả.
 
-2. Quản trị viên
+ Chức năng  Nội dung 
 
-Quản trị viên có quyền quản lý toàn bộ hệ thống.
+ Quản lý tài khoản  Đăng nhập, đăng xuất và phân quyền người dùng 
+ Quản lý bàn Billiards  Thêm, sửa, xóa và theo dõi trạng thái bàn 
+ Quản lý khách hàng  Lưu trữ và cập nhật thông tin khách hàng 
+ Quản lý nhân viên  Quản lý thông tin và tài khoản nhân viên 
+ Quản lý đặt bàn  Đặt bàn, cập nhật và theo dõi lịch đặt 
+ Quản lý giờ chơi  Theo dõi thời gian sử dụng bàn và tính tiền 
+ Quản lý hóa đơn  Tạo hóa đơn và thanh toán 
+ Quản lý dịch vụ  Quản lý đồ uống và các dịch vụ đi kèm 
+ Thống kê doanh thu  Tổng hợp doanh thu và báo cáo hoạt động kinh doanh 
 
-* Đăng nhập và đăng xuất.
-* Quản lý tài khoản nhân viên.
-* Quản lý thông tin bàn Billiards.
-* Quản lý giá giờ chơi.
-* Quản lý khách hàng và hóa đơn.
-* Theo dõi doanh thu.
-* Xem báo cáo và thống kê.
-* Kiểm soát hoạt động của quán.
+ Phân quyền người dùng
 
-3. Công nghệ
+Hệ thống hỗ trợ phân quyền theo vai trò để đảm bảo mỗi người dùng chỉ được thực hiện các chức năng phù hợp.
 
-* HTML5: Xây dựng cấu trúc trang web.
-* CSS3: Thiết kế giao diện và bố cục.
-* JavaScript: Xử lý các chức năng trên giao diện.
-* Node.js: Môi trường chạy JavaScript phía máy chủ.
-* SQL Server: Hệ quản trị cơ sở dữ liệu.
-* GitHub: Lưu trữ và quản lý mã nguồn dự án.
+ Vai trò  Quyền hạn chính 
+ Quản trị viên  Quản lý toàn bộ hệ thống, tài khoản, nhân viên, bàn, giá giờ chơi và báo cáo 
+ Nhân viên  Quản lý bàn chơi, khách hàng, đặt bàn, giờ chơi và hóa đơn 
+ Khách hàng  Đặt bàn và theo dõi thông tin đặt bàn (nếu hệ thống hỗ trợ tài khoản khách hàng) 
 
-4. Cài đặt và chạy
+ Công nghệ sử dụng
 
-Bước 1: Tải mã nguồn
+- HTML5: Xây dựng cấu trúc giao diện website.
+- CSS3: Thiết kế giao diện và bố cục trang web.
+- JavaScript: Xử lý các chức năng tương tác.
+- Node.js: Môi trường chạy JavaScript phía máy chủ.
+- Express.js: Framework xây dựng ứng dụng backend và API.
+- SQL Server: Hệ quản trị cơ sở dữ liệu.
+- Git và GitHub: Quản lý và lưu trữ mã nguồn dự án.
 
-Clone dự án về máy tính hoặc tải mã nguồn trực tiếp từ GitHub.
+ Yêu cầu hệ thống
 
-Bước 2: Cài đặt công cụ
+- Windows 10 hoặc Windows 11.
+- Node.js và npm đã được cài đặt.
+- Visual Studio Code.
+- Microsoft SQL Server đã được cài đặt và khởi động.
+- SQL Server Management Studio (SSMS).
+- Trình duyệt Google Chrome hoặc Microsoft Edge.
 
-Cài đặt các công cụ cần thiết:
+ Cài đặt và chạy ứng dụng
 
-* Visual Studio Code.
-* Node.js và npm.
-* Microsoft SQL Server.
-* SQL Server Management Studio (SSMS).
+ Bước 1: Tải mã nguồn
 
-Bước 3: Cài đặt thư viện
+Clone dự án từ GitHub hoặc tải mã nguồn về máy tính.
 
-Mở thư mục dự án trong Visual Studio Code, mở Terminal và chạy:
+```bash
+git clone <LINK_GITHUB_CUA_BAN>
+```
 
+Di chuyển vào thư mục dự án:
+
+```bash
+cd QUAN_LY_QUAN_BILLIARDS
+```
+
+ Bước 2: Mở dự án
+
+Mở thư mục dự án bằng Visual Studio Code.
+
+```bash
+code .
+```
+
+ Bước 3: Cài đặt thư viện
+
+Mở Terminal trong Visual Studio Code và chạy:
+
+```bash
 npm install
+```
 
-Bước 4: Tạo cơ sở dữ liệu
+Lệnh này sẽ cài đặt các thư viện được khai báo trong file `package.json`.
 
-* Mở SQL Server Management Studio.
-* Kết nối đến SQL Server.
-* Mở file schema.sql.
-* Kiểm tra và thực thi các câu lệnh SQL để tạo cơ sở dữ liệu và các bảng.
+ Bước 4: Tạo cơ sở dữ liệu
 
-Bước 5: Cấu hình kết nối
+1. Mở SQL Server Management Studio.
+2. Kết nối đến SQL Server.
+3. Mở file `schema.sql` trong dự án.
+4. Kiểm tra các câu lệnh SQL.
+5. Nhấn Execute để tạo cơ sở dữ liệu và các bảng.
 
-* Tham khảo file .eve.exmple nếu đây là tên file cấu hình mẫu hiện có trong dự án.
-* Nếu file thực tế là .env.example, hãy sử dụng đúng tên đó.
-* Tạo file .env theo cấu hình của dự án.
-* Điền thông tin kết nối cơ sở dữ liệu và các biến môi trường cần thiết.
+ Bước 5: Cấu hình kết nối cơ sở dữ liệu
 
-Bước 6: Khởi chạy dự án
+Tạo file `.env` tại thư mục gốc dự án.
 
-Kiểm tra mục scripts trong file package.json để biết lệnh chạy chính xác. Nếu dự án có script start, sử dụng:
+Tham khảo cấu hình mẫu trong `.env.example` (nếu dự án có file này).
 
+Ví dụ:
+
+```env
+PORT=3000
+
+DB_SERVER=localhost
+DB_NAME=QuanLyBilliards
+DB_USER=sa
+DB_PASSWORD=your_password
+DB_ENCRYPT=false
+DB_TRUST_SERVER_CERTIFICATE=true
+```
+
+Lưu ý: Các biến môi trường cần được điều chỉnh theo cấu hình SQL Server và mã nguồn thực tế của dự án. Không chia sẻ mật khẩu hoặc đưa file `.env` lên GitHub.
+
+ Bước 6: Khởi chạy ứng dụng
+
+Kiểm tra mục `scripts` trong file `package.json`.
+
+Nếu dự án sử dụng lệnh `start`:
+
+```bash
 npm start
+```
 
-Nếu dự án có script dev, sử dụng:
+Nếu dự án sử dụng lệnh `dev`:
 
+```bash
 npm run dev
+```
 
-Mở địa chỉ localhost được hiển thị trong Terminal để truy cập website.
+Sau khi chạy thành công, mở trình duyệt và truy cập địa chỉ:
 
-Lưu ý: Các lệnh chạy phụ thuộc vào cấu hình thực tế của dự án.
+```text
+http://localhost:3000
+```
 
-5. Kiến thức
+Cổng truy cập có thể thay đổi tùy theo cấu hình trong file `.env`.
+
+ Kiểm thử
+
+Kiểm tra các chức năng chính của hệ thống:
+
+- Kiểm tra đăng nhập và phân quyền tài khoản.
+- Kiểm tra thêm, sửa, xóa thông tin bàn.
+- Kiểm tra quản lý khách hàng và nhân viên.
+- Kiểm tra chức năng đặt bàn.
+- Kiểm tra tính giờ chơi và tính tiền.
+- Kiểm tra tạo hóa đơn và thanh toán.
+- Kiểm tra quản lý đồ uống và dịch vụ.
+- Kiểm tra thống kê doanh thu.
+
+Nếu dự án đã cài đặt framework kiểm thử, sử dụng lệnh tương ứng được khai báo trong `package.json`.
+
+ Cấu trúc thư mục
+
+Cấu trúc tham khảo của dự án:
+
+```text
+QUAN_LY_QUAN_BILLIARDS/
+│
+├── public/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   └── images/
+│
+├── routes/
+│   ├── auth.js
+│   ├── tables.js
+│   ├── customers.js
+│   ├── employees.js
+│   ├── bookings.js
+│   ├── invoices.js
+│   └── services.js
+│
+├── controllers/
+├── models/
+├── config/
+│   └── database.js
+│
+├── views/
+├── tests/
+│
+├── database/
+│   └── schema.sql
+│
+├── .env.example
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── server.js
+└── README.md
+```
+
+Cấu trúc trên là cấu trúc đề xuất; cần điều chỉnh theo các thư mục và file thực tế trong mã nguồn.
+
+ Kiến thức áp dụng
 
 Dự án vận dụng các kiến thức:
 
-* Phân tích và thiết kế hệ thống.
-* Thiết kế cơ sở dữ liệu và mô hình ERD.
-* Chuẩn hóa cơ sở dữ liệu.
-* HTML, CSS và JavaScript.
-* Lập trình phía máy chủ với Node.js.
-* Các thao tác CRUD: thêm, xem, sửa và xóa dữ liệu.
-* Kết nối và truy vấn SQL Server.
-* Quản lý tài khoản và phân quyền người dùng.
-* Kiểm thử và phát hiện lỗi.
-* Sử dụng Git và GitHub để quản lý mã nguồn.
+- Phân tích và thiết kế hệ thống thông tin.
+- Thiết kế cơ sở dữ liệu và sơ đồ ERD.
+- Chuẩn hóa cơ sở dữ liệu.
+- Lập trình giao diện HTML, CSS và JavaScript.
+- Xây dựng backend với Node.js và Express.js.
+- Kết nối và truy vấn cơ sở dữ liệu SQL Server.
+- Thực hiện các thao tác CRUD.
+- Quản lý tài khoản và phân quyền người dùng.
+- Kiểm thử và sửa lỗi ứng dụng.
+- Sử dụng Git và GitHub để quản lý mã nguồn.
 
-6. Tài liệu
+ Mục tiêu dự án
 
-* README.md: Giới thiệu và hướng dẫn sử dụng dự án.
-* schema.sql: Cấu trúc cơ sở dữ liệu.
-* package.json: Thông tin dự án và các thư viện sử dụng.
-* .env.example hoặc file cấu hình mẫu tương ứng: Hướng dẫn các biến môi trường.
-* index.html: Giao diện trang web.
-* Thư mục kiemthu: Tài liệu hoặc nội dung phục vụ kiểm thử.
-* Thư mục teptailen: Tài liệu hoặc tệp được tải lên dự án.
+Xây dựng website quản lý quán Billiards giúp tự động hóa quy trình quản lý bàn chơi, khách hàng, nhân viên, dịch vụ và thanh toán.
 
-Các tài liệu bổ sung có thể bao gồm sơ đồ ERD, tài liệu phân tích thiết kế hệ thống, hướng dẫn sử dụng và báo cáo kiểm thử.
-
-⸻
-
-Dự án: Quản lý quán Billiards
-
-Mục tiêu: Xây dựng website hỗ trợ quản lý bàn chơi, khách hàng, nhân viên, dịch vụ và doanh thu một cách thuận tiện, chính xác và hiệu quả.
+Góp phần giảm thiểu sai sót trong quá trình tính tiền, tiết kiệm thời gian quản lý và nâng cao hiệu quả hoạt động kinh doanh của quán Billiards.
