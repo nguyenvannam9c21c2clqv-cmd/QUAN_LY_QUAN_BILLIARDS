@@ -1,0 +1,55 @@
+TRẠNG THÁI DỰ ÁN BILLIARDS MANAGEMENT
+1. Thông tin dự án
+Tên dự án: Billiards Management System
+Loại dự án: Phần mềm quản lý quán Bida
+Trạng thái: Đang phát triển
+Phiên bản: 0.1.0
+Ngôn ngữ: Python
+Cơ sở dữ liệu: SQLite
+2. Tiến độ hiện tại
+Hạng mục	Trạng thái
+Cấu trúc dự án	Đã tạo
+Bootstrap hệ thống	Đã tạo
+Cơ sở dữ liệu	Đã khởi tạo cơ bản
+Tạo tài khoản	Đã tạo
+Tài liệu AI	Đã tạo
+Quản lý lỗi	Đã tạo
+Danh sách công việc	Đã tạo
+Đăng nhập	Chưa thực hiện
+Quản lý bàn	Chưa thực hiện
+Quản lý khách hàng	Chưa thực hiện
+Quản lý hóa đơn	Chưa thực hiện
+Quản lý nhân viên	Chưa thực hiện
+Thống kê doanh thu	Chưa thực hiện
+3. Chức năng đang phát triển
+Hoàn thiện hệ thống tài khoản.
+Xây dựng chức năng đăng nhập.
+Xây dựng quản lý bàn Bida.
+Xây dựng tính tiền theo thời gian.
+Hoàn thiện cơ sở dữ liệu.
+4. Lỗi và vấn đề hiện tại
+Chưa ghi nhận lỗi chính thức.
+Chưa hoàn thiện kiểm thử toàn hệ thống.
+Chưa triển khai môi trường thực tế.
+5. Kế hoạch tiếp theo
+Hoàn thiện đăng nhập và phân quyền.
+Xây dựng giao diện quản lý bàn.
+Xây dựng chức năng tính giờ và tính tiền.
+Xây dựng quản lý khách hàng.
+Hoàn thiện hóa đơn và thanh toán.
+Xây dựng báo cáo doanh thu.
+6. Quy định cập nhật trạng thái
+Cập nhật file sau mỗi giai đoạn phát triển.
+Chỉ đánh dấu hoàn thành khi chức năng đã được kiểm thử.
+Ghi nhận các lỗi quan trọng trong LOGBUG.md.
+Đồng bộ tiến độ với TODOS.md.
+Không ghi nhận chức năng chưa triển khai là đã hoàn thành.
+7. Mục tiêu phiên bản
+Version 0.1.0: Khởi tạo dự án.
+Version 0.2.0: Tài khoản và phân quyền.
+Version 0.3.0: Quản lý bàn và tính giờ.
+Version 0.4.0: Khách hàng và hóa đơn.
+Version 0.5.0: Nhân viên và kho hàng.
+Version 1.0.0: Hoàn thiện hệ thống và triển khai.
+
+Mục tiêu: Theo dõi minh bạch tiến độ, đảm bảo dự án phát triển đúng kế hoạch và chất lượng.
