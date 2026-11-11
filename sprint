@@ -1,0 +1,27 @@
+1. Nội dung 4 Sprint
+Sprint 1 – Nền tảng hệ thống
+- Đăng nhập, đăng xuất.
+- Phân quyền người dùng.
+- Thiết kế cơ sở dữ liệu.
+- Xây dựng cấu trúc dự án.
+
+
+Sprint 2 – Quản lý bàn Billiards
+- Hiển thị danh sách bàn.
+- Quản lý trạng thái bàn.
+- Đặt bàn.
+- Cập nhật tình trạng bàn.
+
+
+Sprint 3 – Quản lý dịch vụ
+- Tính thời gian chơi.
+- Quản lý đồ ăn, thức uống.
+- Gọi món và dịch vụ.
+- Tính tiền dịch vụ.
+
+
+Sprint 4 – Thanh toán và báo cáo
+- Quản lý hóa đơn.
+- Thanh toán.
+- Thống kê doanh thu.
+- Lịch sử hóa đơn.
