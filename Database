@@ -1,1 +1,166 @@
 
+-- ==========================================
+-- DATABASE QUAN LY QUAN BILLIARDS
+-- SQL SERVER
+-- ==========================================
+
+CREATE DATABASE QUAN_LY_BILLIARDS;
+GO
+
+USE QUAN_LY_BILLIARDS;
+GO
+
+-- 1. BANG CHUC VU
+CREATE TABLE Roles (
+    RoleID INT IDENTITY(1,1) PRIMARY KEY,
+    RoleName NVARCHAR(50) NOT NULL UNIQUE
+);
+GO
+
+-- 2. BANG NHAN VIEN
+CREATE TABLE Employees (
+    EmployeeID INT IDENTITY(1,1) PRIMARY KEY,
+    FullName NVARCHAR(100) NOT NULL,
+    Phone VARCHAR(15),
+    Email VARCHAR(100),
+    Username VARCHAR(50) NOT NULL UNIQUE,
+    PasswordHash VARCHAR(255) NOT NULL,
+    RoleID INT NOT NULL,
+    IsActive BIT DEFAULT 1,
+    CreatedAt DATETIME DEFAULT GETDATE(),
+
+    FOREIGN KEY (RoleID) REFERENCES Roles(RoleID)
+);
+GO
+
+-- 3. BANG KHACH HANG
+CREATE TABLE Customers (
+    CustomerID INT IDENTITY(1,1) PRIMARY KEY,
+    FullName NVARCHAR(100) NOT NULL,
+    Phone VARCHAR(15) UNIQUE,
+    Email VARCHAR(100),
+    Address NVARCHAR(255),
+    CreatedAt DATETIME DEFAULT GETDATE()
+);
+GO
+
+-- 4. BANG LOAI BAN
+CREATE TABLE TableTypes (
+    TypeID INT IDENTITY(1,1) PRIMARY KEY,
+    TypeName NVARCHAR(50) NOT NULL,
+    PricePerHour DECIMAL(12,2) NOT NULL
+        CHECK (PricePerHour >= 0),
+    Description NVARCHAR(255)
+);
+GO
+
+-- 5. BANG BAN BILLIARDS
+CREATE TABLE BilliardTables (
+    TableID INT IDENTITY(1,1) PRIMARY KEY,
+    TableName NVARCHAR(50) NOT NULL UNIQUE,
+    TypeID INT NOT NULL,
+    TableStatus NVARCHAR(30) DEFAULT N'Trống'
+        CHECK (TableStatus IN
+        (N'Trống', N'Đang chơi', N'Đã đặt', N'Bảo trì')),
+
+    FOREIGN KEY (TypeID) REFERENCES TableTypes(TypeID)
+);
+GO
+
+-- 6. BANG DAT BAN
+CREATE TABLE Bookings (
+    BookingID INT IDENTITY(1,1) PRIMARY KEY,
+    CustomerID INT NOT NULL,
+    TableID INT NOT NULL,
+    EmployeeID INT,
+    BookingTime DATETIME NOT NULL,
+    StartTime DATETIME NOT NULL,
+    EndTime DATETIME NOT NULL,
+    BookingStatus NVARCHAR(30) DEFAULT N'Chờ xác nhận'
+        CHECK (BookingStatus IN
+        (N'Chờ xác nhận', N'Đã xác nhận',
+         N'Đã hoàn thành', N'Đã hủy')),
+    Note NVARCHAR(255),
+
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+    FOREIGN KEY (TableID) REFERENCES BilliardTables(TableID),
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+
+    CHECK (EndTime > StartTime)
+);
+GO
+
+-- 7. BANG PHIEN CHOI
+CREATE TABLE PlaySessions (
+    SessionID INT IDENTITY(1,1) PRIMARY KEY,
+    TableID INT NOT NULL,
+    CustomerID INT,
+    EmployeeID INT,
+    BookingID INT,
+    StartTime DATETIME NOT NULL DEFAULT GETDATE(),
+    EndTime DATETIME,
+    HourlyPrice DECIMAL(12,2) NOT NULL,
+    PlayStatus NVARCHAR(30) DEFAULT N'Đang chơi'
+        CHECK (PlayStatus IN
+        (N'Đang chơi', N'Đã kết thúc')),
+
+    FOREIGN KEY (TableID) REFERENCES BilliardTables(TableID),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+    FOREIGN KEY (BookingID) REFERENCES Bookings(BookingID),
+
+    CHECK (HourlyPrice >= 0),
+    CHECK (EndTime IS NULL OR EndTime > StartTime)
+);
+GO
+
+-- 8. BANG DICH VU
+CREATE TABLE Services (
+    ServiceID INT IDENTITY(1,1) PRIMARY KEY,
+    ServiceName NVARCHAR(100) NOT NULL,
+    Price DECIMAL(12,2) NOT NULL CHECK (Price >= 0),
+    Unit NVARCHAR(30),
+    QuantityInStock INT DEFAULT 0 CHECK (QuantityInStock >= 0),
+    IsActive BIT DEFAULT 1
+);
+GO
+
+-- 9. BANG HOA DON
+CREATE TABLE Invoices (
+    InvoiceID INT IDENTITY(1,1) PRIMARY KEY,
+    SessionID INT NOT NULL UNIQUE,
+    EmployeeID INT NOT NULL,
+    InvoiceDate DATETIME DEFAULT GETDATE(),
+    PlayAmount DECIMAL(12,2) DEFAULT 0,
+    ServiceAmount DECIMAL(12,2) DEFAULT 0,
+    Discount DECIMAL(12,2) DEFAULT 0,
+    TotalAmount DECIMAL(12,2) DEFAULT 0,
+    PaymentMethod NVARCHAR(30) DEFAULT N'Tiền mặt',
+    PaymentStatus NVARCHAR(30) DEFAULT N'Chưa thanh toán'
+        CHECK (PaymentStatus IN
+        (N'Chưa thanh toán', N'Đã thanh toán')),
+
+    FOREIGN KEY (SessionID) REFERENCES PlaySessions(SessionID),
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+
+    CHECK (PlayAmount >= 0),
+    CHECK (ServiceAmount >= 0),
+    CHECK (Discount >= 0),
+    CHECK (TotalAmount >= 0)
+);
+GO
+
+-- 10. BANG CHI TIET HOA DON
+CREATE TABLE InvoiceDetails (
+    DetailID INT IDENTITY(1,1) PRIMARY KEY,
+    InvoiceID INT NOT NULL,
+    ServiceID INT NOT NULL,
+    Quantity INT NOT NULL CHECK (Quantity > 0),
+    UnitPrice DECIMAL(12,2) NOT NULL CHECK (UnitPrice >= 0),
+    SubTotal DECIMAL(12,2) NOT NULL CHECK (SubTotal >= 0),
+
+    FOREIGN KEY (InvoiceID) REFERENCES Invoices(InvoiceID),
+    FOREIGN KEY (ServiceID) REFERENCES Services(ServiceID)
+);
+GO
+
