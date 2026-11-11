@@ -1,0 +1,83 @@
+SPRINT 4: Thống kê, kiểm thử và hoàn thiện hệ thống
+Tuần 6
+Giai đoạn hoàn thiện và bàn giao
+
+1. Mục tiêu
+
+Kiểm tra toàn bộ chức năng, khắc phục lỗi, xây dựng báo cáo doanh thu và hoàn thiện hệ thống để trình bày.
+
+2. Công việc chi tiết
+STT	Công việc	Nội dung thực hiện
+1	Dashboard	Xây dựng trang tổng quan
+2	Thống kê bàn	Đếm bàn trống, đang chơi, đã đặt
+3	Thống kê doanh thu	Tổng hợp doanh thu theo ngày/tháng
+4	Thống kê hóa đơn	Tra cứu hóa đơn đã thanh toán
+5	Kiểm thử đăng nhập	Kiểm tra tài khoản đúng và sai
+6	Kiểm thử quản lý	Kiểm tra nhân viên, khách hàng, bàn
+7	Kiểm thử nghiệp vụ	Kiểm tra đặt bàn, tính giờ và thanh toán
+8	Sửa lỗi	Khắc phục lỗi giao diện và xử lý dữ liệu
+9	Kiểm thử lại	Kiểm tra các chức năng sau khi sửa lỗi
+10	Hoàn thiện tài liệu	Cập nhật README, tài liệu kiểm thử và hướng dẫn
+
+3. Các trường hợp kiểm thử
+Mã	Trường hợp kiểm thử	Kết quả mong đợi
+TC01	Đăng nhập đúng tài khoản	Đăng nhập thành công
+TC02	Đăng nhập sai mật khẩu	Hiển thị thông báo lỗi
+TC03	Thêm bàn mới	Bàn được lưu
+TC04	Đặt bàn đã có lịch trùng	Hệ thống từ chối
+TC05	Bắt đầu phiên chơi	Ghi nhận thời gian bắt đầu
+TC06	Kết thúc phiên chơi	Ghi nhận thời gian kết thúc
+TC07	Thêm đồ uống	Dịch vụ được thêm vào hóa đơn
+TC08	Thanh toán hóa đơn	Hóa đơn chuyển sang đã thanh toán
+TC09	Thanh toán lần hai	Hệ thống ngăn thanh toán trùng
+TC10	Xem doanh thu	Hiển thị số liệu đúng
+
+4. Chức năng thống kê cần hoàn thiện
+- Tổng doanh thu trong ngày.
+- Tổng doanh thu trong tháng.
+- Số lượng hóa đơn đã thanh toán.
+- Số bàn đang hoạt động.
+- Số khách hàng.
+- Danh sách hóa đơn gần đây.
+- Báo cáo doanh thu theo khoảng thời gian.
+5. Sản phẩm bàn giao
+- Dashboard thống kê.
+- Chức năng báo cáo doanh thu.
+- Danh sách test case và kết quả kiểm thử.
+- Danh sách lỗi và kết quả sửa lỗi.
+- README hướng dẫn cài đặt và chạy.
+- Phiên bản website hoàn thiện để trình diễn.
+6. Tiêu chí hoàn thành
+- Các chức năng chính hoạt động đúng.
+- Các lỗi nghiêm trọng đã được xử lý.
+- Số liệu doanh thu khớp với hóa đơn đã thanh toán.
+- Có tài liệu hướng dẫn sử dụng.
+- Nhóm có thể trình bày được quy trình hoạt động của hệ thống.
+
+Bảng phân công thành viên mẫu
+Bạn có thể thay tên thành viên thật của nhóm vào bảng này.
+Vai trò	Nhiệm vụ
+Nhóm trưởng	Quản lý tiến độ, tổng hợp tài liệu
+Phân tích hệ thống	Khảo sát, Use Case, ERD
+Frontend	Xây dựng giao diện website
+Backend	Xây dựng xử lý nghiệp vụ và API
+Database	Thiết kế bảng và truy vấn SQL
+Tester	Viết test case và kiểm thử
+
+Đưa 4 Sprint lên GitHub như thế nào?
+Với repository hiện tại, mình đề xuất tổ chức như sau:
+QUAN_LY_QUAN_BILLIARDS/
+│
+├── docs/
+│   ├── SPRINT_1.md
+│   ├── SPRINT_2.md
+│   ├── SPRINT_3.md
+│   └── SPRINT_4.md
+│
+├── backend/
+├── frontend/
+├── database/
+├── kiemthu/
+├── teptailen/
+├── README.md
+└── package.json
