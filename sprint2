@@ -1,0 +1,36 @@
+SPRINT 2: Xây dựng giao diện và chức năng quản lý cơ bản
+Tuần 2–3
+Giai đoạn phát triển nền tảng
+
+1. Mục tiêu
+
+Xây dựng giao diện website và các chức năng quản lý dữ liệu cơ bản, giúp quản trị viên và nhân viên có thể sử dụng hệ thống.
+
+2. Công việc chi tiết
+STT	Công việc	Nội dung thực hiện
+1	Xây dựng giao diện	Tạo bố cục website, menu và trang tổng quan
+2	Đăng nhập	Kiểm tra tài khoản và mật khẩu
+3	Đăng xuất	Kết thúc phiên đăng nhập
+4	Phân quyền	Phân biệt quyền quản trị viên và nhân viên
+5	Quản lý nhân viên	Thêm, sửa, xem và ngừng hoạt động nhân viên
+6	Quản lý khách hàng	Thêm, sửa, tìm kiếm và xem khách hàng
+7	Quản lý bàn	Thêm, sửa, xem và cập nhật trạng thái bàn
+8	Kết nối database	Lưu trữ và truy xuất dữ liệu
+
+3. Chức năng quản lý bàn
+
+Hệ thống cần hiển thị trạng thái bàn để nhân viên dễ dàng theo dõi.
+
+4. Sản phẩm bàn giao
+- Giao diện website cơ bản.
+- Chức năng đăng nhập và đăng xuất.
+- Chức năng phân quyền.
+- Chức năng quản lý nhân viên.
+- Chức năng quản lý khách hàng.
+- Chức năng quản lý bàn.
+- Database kết nối với hệ thống.
+5. Tiêu chí hoàn thành
+- Người dùng đăng nhập được bằng tài khoản hợp lệ.
+- Các chức năng thêm, sửa, xóa hoặc ngừng hoạt động xử lý đúng.
+- Dữ liệu được lưu vào cơ sở dữ liệu.
+- Trạng thái bàn hiển thị chính xác.
