@@ -1,0 +1,50 @@
+1. Mục tiêu Sprint
+
+Xây dựng nền tảng ban đầu cho hệ thống quản lý quán Billiards. Xác định các chức năng cần thiết, thiết kế cơ sở dữ liệu, xây dựng cấu trúc dự án và chuẩn bị môi trường hoạt động.
+
+2. User Story
+Mã	User Story	Ưu tiên
+US01	Là quản lý, tôi muốn đăng nhập để truy cập hệ thống	Cao
+US02	Là quản lý, tôi muốn phân quyền nhân viên để kiểm soát chức năng	Cao
+US03	Là nhóm phát triển, tôi muốn thiết kế cơ sở dữ liệu để lưu trữ thông tin	Cao
+US04	Là người dùng, tôi muốn có giao diện chính dễ sử dụng	Trung bình
+US05	Là quản lý, tôi muốn quản lý thông tin nhân viên	Trung bình
+
+3. Công việc cần thực hiện
+STT	Công việc	Mô tả chi tiết	Kết quả
+1	Khảo sát nghiệp vụ	Tìm hiểu quy trình hoạt động của quán	Tài liệu yêu cầu
+2	Phân tích hệ thống	Xác định chức năng quản lý	Danh sách chức năng
+3	Thiết kế ERD	Xác định bảng và quan hệ dữ liệu	Sơ đồ ERD
+4	Thiết kế Database	Tạo các bảng SQL Server	File schema.sql
+5	Xây dựng giao diện	Tạo trang chủ và thanh điều hướng	Giao diện cơ bản
+6	Xây dựng đăng nhập	Tạo biểu mẫu đăng nhập và xác thực	Chức năng đăng nhập
+7	Phân quyền	Phân biệt quản lý và nhân viên	Quyền truy cập
+8	Kiểm thử	Kiểm tra dữ liệu và đăng nhập	Báo cáo kiểm thử
+
+4. Thiết kế cơ sở dữ liệu
+
+Các bảng cần có hoặc cần xem xét:
+- NhanVien: Lưu thông tin nhân viên.
+- TaiKhoan: Lưu tài khoản đăng nhập.
+- BanBida: Lưu thông tin bàn chơi.
+- KhachHang: Lưu thông tin khách hàng.
+- DatBan: Lưu thông tin đặt bàn.
+- DichVu: Lưu đồ ăn và thức uống.
+- HoaDon: Lưu thông tin hóa đơn.
+Lưu ý: Repository hiện tại đã có các bảng BanBida, KhachHang, DatBan, DichVu, HoaDon. Các bảng tài khoản và nhân viên cần được bổ sung nếu chưa triển khai.
+
+5. Tiêu chí nghiệm thu
+- [ ] Có sơ đồ cơ sở dữ liệu ERD.
+- [ ] Có file SQL tạo cơ sở dữ liệu.
+- [ ] Có giao diện trang chủ.
+- [ ] Đăng nhập được bằng tài khoản hợp lệ nếu chức năng đã triển khai.
+- [ ] Phân quyền đúng theo vai trò.
+- [ ] Kết nối được SQL Server.
+- [ ] Có tài liệu hướng dẫn cài đặt.
+6. Kết quả bàn giao Sprint 1
+- Tài liệu phân tích yêu cầu.
+- Sơ đồ ERD.
+- File schema.sql.
+- Giao diện đăng nhập và trang chủ.
+- Chức năng xác thực nếu đã hoàn thiện.
+- Báo cáo kiểm thử nền tảng.
