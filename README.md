@@ -133,6 +133,13 @@ http://localhost:3000
 
 Cổng truy cập có thể thay đổi tùy theo cấu hình trong file `.env`.
 
+Đăng nhập thử với tài khoản phát triển mặc định:
+
+- Tài khoản: `admin`
+- Mật khẩu: `Billiards@123`
+
+Có thể đổi tài khoản bằng `DEMO_USERNAME` và `DEMO_PASSWORD` trong file `.env`. Tài khoản mặc định chỉ dành cho chạy thử trên máy cá nhân; không sử dụng khi triển khai thật.
+
  Kiểm thử
 
 Kiểm tra các chức năng chính của hệ thống:

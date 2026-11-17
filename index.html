@@ -28,6 +28,26 @@
     button, input, select { font: inherit; }
     button { color: inherit; cursor: pointer; }
     .app { min-height: 100vh; display: grid; grid-template-columns: 246px minmax(0, 1fr); }
+    body:not(.authenticated) .app { display: none; }
+    .login-screen { min-height: 100vh; display: grid; place-items: center; padding: 24px; background: radial-gradient(ellipse at 50% 0%, #263a29 0, var(--bg) 58%); }
+    body.authenticated .login-screen { display: none; }
+    .login-card { width: min(430px, 100%); padding: 32px; border: 1px solid #34463a; border-radius: 20px; background: #18221d; box-shadow: 0 24px 80px #0005; }
+    .login-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; }
+    .login-brand .brand-mark { flex: none; }
+    .login-heading { font: 800 24px "Manrope", sans-serif; letter-spacing: -.7px; margin: 0; }
+    .login-description { color: var(--muted); font-size: 13px; line-height: 1.6; margin: 8px 0 24px; }
+    .login-form { display: grid; gap: 15px; }
+    .login-field { display: grid; gap: 7px; }
+    .login-field label { color: #b8c4ba; font-size: 12px; font-weight: 600; }
+    .login-field input { width: 100%; height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; outline: none; background: #121a15; color: var(--text); }
+    .login-field input:focus { border-color: #8fb95d; }
+    .login-submit { width: 100%; min-height: 44px; margin-top: 3px; }
+    .login-error { padding: 10px 12px; border: 1px solid #74433e; border-radius: 9px; background: #482a272b; color: #ffaaa2; font-size: 12px; line-height: 1.5; }
+    .login-error[hidden] { display: none; }
+    .demo-credentials { margin-top: 21px; padding: 13px; border: 1px solid #344334; border-radius: 10px; background: #202b24; color: #aab6ac; font-size: 11px; line-height: 1.8; }
+    .demo-credentials strong { color: #dce8dd; }
+    .demo-credentials code { color: var(--green); font-family: Consolas, monospace; }
+    @media (max-width: 480px) { .login-card { padding: 25px 20px; } }
     .sidebar { background: #141d18; border-right: 1px solid var(--line); padding: 25px 16px 18px; display: flex; flex-direction: column; min-height: 100vh; position: sticky; top: 0; height: 100vh; }
     .brand { display: flex; align-items: center; gap: 12px; padding: 0 10px; margin-bottom: 40px; }
     .brand-mark { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 13px; color: #14200f; background: var(--green); box-shadow: 0 5px 20px #b4f36b24; }
@@ -267,6 +287,33 @@
   </style>
 </head>
 <body>
+  <main class="login-screen">
+    <section class="login-card" aria-labelledby="login-heading">
+      <div class="login-brand">
+        <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><path d="m5.7 5.7 3 3m6.6 6.6 3 3"/></svg></div>
+        <div class="brand-name">break<span>time</span></div>
+      </div>
+      <h1 class="login-heading" id="login-heading">Đăng nhập hệ thống</h1>
+      <p class="login-description">Đăng nhập để quản lý bàn chơi, dịch vụ và hoạt động của quán.</p>
+      <form class="login-form" id="login-form">
+        <div class="login-field">
+          <label for="login-username">Tài khoản</label>
+          <input id="login-username" name="username" autocomplete="username" required maxlength="80" autofocus>
+        </div>
+        <div class="login-field">
+          <label for="login-password">Mật khẩu</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required maxlength="256">
+        </div>
+        <div class="login-error" id="login-error" role="alert" hidden></div>
+        <button class="primary-button login-submit" id="login-submit" type="submit">Đăng nhập</button>
+      </form>
+      <div class="demo-credentials">
+        <strong>Tài khoản thử nghiệm</strong><br>
+        Tài khoản: <code>admin</code><br>
+        Mật khẩu: <code>Billiards@123</code>
+      </div>
+    </section>
+  </main>
   <div class="app">
     <aside class="sidebar">
       <div class="brand">
@@ -294,9 +341,9 @@
           <button onclick="showToast('Đội ngũ hỗ trợ sẽ liên hệ với bạn!')">Liên hệ hỗ trợ →</button>
         </div>
         <div class="profile">
-          <div class="avatar">NA</div>
-          <div class="profile-info"><strong>Nguyễn Anh</strong><small>Quản lý cửa hàng</small></div>
-          <button aria-label="Tùy chọn tài khoản"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg></button>
+          <div class="avatar">QT</div>
+          <div class="profile-info"><strong id="profile-name">Quản trị viên</strong><small id="profile-username">Tài khoản: admin</small></div>
+          <button id="logout-button" aria-label="Đăng xuất" title="Đăng xuất"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 17l5-5-5-5m5 5H3"/><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"/></svg></button>
         </div>
       </div>
     </aside>
@@ -316,7 +363,7 @@
 
       <section class="view active" id="view-dashboard">
         <div class="welcome-row">
-          <div><h1>Chào buổi tối, Anh <span style="font-size:20px">👋</span></h1><p><i class="live-dot"></i>Quán đang hoạt động tốt. Đây là tình hình hôm nay.</p></div>
+          <div><h1>Chào buổi tối, <span id="welcome-name">Quản trị viên</span> <span style="font-size:20px">👋</span></h1><p><i class="live-dot"></i>Quán đang hoạt động tốt. Đây là tình hình hôm nay.</p></div>
           <button class="primary-button" onclick="openNewTableModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Mở bàn mới</button>
         </div>
         <div class="stats">
@@ -413,6 +460,82 @@
     }
     let state = loadState();
     let toastTimer;
+    let refreshTimer;
+    function showLoginMessage(message) {
+      const error = document.getElementById("login-error");
+      error.textContent = message;
+      error.hidden = !message;
+    }
+    function enterApp(user) {
+      document.body.classList.add("authenticated");
+      document.getElementById("profile-name").textContent = user.displayName;
+      document.getElementById("profile-username").textContent = `Tài khoản: ${user.username}`;
+      document.getElementById("welcome-name").textContent = user.displayName;
+      renderApp();
+      if (!refreshTimer) refreshTimer = setInterval(renderApp, 30000);
+    }
+    async function checkAuthentication() {
+      try {
+        const response = await fetch("/api/auth/me");
+        if (response.status === 401) return;
+        if (!response.ok) throw new Error(`Lỗi máy chủ (${response.status})`);
+        const result = await response.json();
+        if (!result.user) throw new Error("Phản hồi đăng nhập không hợp lệ.");
+        enterApp(result.user);
+      } catch (error) {
+        console.error("Không thể kiểm tra phiên đăng nhập:", error);
+        showLoginMessage("Không kết nối được máy chủ. Hãy kiểm tra server và tải lại trang.");
+      }
+    }
+    async function handleLogin(event) {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const submit = document.getElementById("login-submit");
+      const formData = new FormData(form);
+      showLoginMessage("");
+      submit.disabled = true;
+      submit.textContent = "Đang đăng nhập...";
+      try {
+        const response = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: formData.get("username"),
+            password: formData.get("password")
+          })
+        });
+        const result = await response.json();
+        if (!response.ok) {
+          showLoginMessage(result.error || "Đăng nhập thất bại. Vui lòng thử lại.");
+          return;
+        }
+        if (!result.user) throw new Error("Phản hồi đăng nhập không hợp lệ.");
+        form.reset();
+        enterApp(result.user);
+      } catch (error) {
+        console.error("Không thể đăng nhập:", error);
+        showLoginMessage("Không thể kết nối máy chủ. Hãy kiểm tra server rồi thử lại.");
+      } finally {
+        submit.disabled = false;
+        submit.textContent = "Đăng nhập";
+      }
+    }
+    async function handleLogout() {
+      const button = document.getElementById("logout-button");
+      button.disabled = true;
+      try {
+        const response = await fetch("/api/auth/logout", { method: "POST" });
+        if (!response.ok) throw new Error(`Lỗi máy chủ (${response.status})`);
+        document.body.classList.remove("authenticated");
+        showLoginMessage("");
+        document.getElementById("login-username").focus();
+      } catch (error) {
+        console.error("Không thể đăng xuất:", error);
+        showToast("Không thể đăng xuất. Hãy kiểm tra kết nối rồi thử lại.");
+      } finally {
+        button.disabled = false;
+      }
+    }
     function saveState() {
       try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
       catch (error) { console.error("Không thể lưu dữ liệu quản lý quán:", error); showToast("Không thể lưu dữ liệu. Hãy kiểm tra dung lượng trình duyệt."); }
@@ -675,9 +798,10 @@
       if (card) openTable(Number(card.dataset.tableId));
     });
     document.addEventListener("keydown", event => { if (event.key === "Escape") closeModal(); });
+    document.getElementById("login-form").addEventListener("submit", handleLogin);
+    document.getElementById("logout-button").addEventListener("click", handleLogout);
     document.getElementById("today-date").textContent = new Intl.DateTimeFormat("vi-VN", { weekday: "short", day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date());
-    renderApp();
-    setInterval(renderApp, 30000);
+    checkAuthentication();
   </script>
 </body>
 </html>
