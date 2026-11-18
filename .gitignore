@@ -27,3 +27,6 @@ coverage/
 # File tai len cua nguoi dung
 tepTaiLen/*
 !tepTaiLen/README.md
+
+# Du lieu tai khoan SQLite cuc bo
+/data/*.sqlite*

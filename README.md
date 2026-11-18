@@ -34,16 +34,14 @@ Hệ thống hỗ trợ phân quyền theo vai trò để đảm bảo mỗi ng�
 - JavaScript: Xử lý các chức năng tương tác.
 - Node.js: Môi trường chạy JavaScript phía máy chủ.
 - Express.js: Framework xây dựng ứng dụng backend và API.
-- SQL Server: Hệ quản trị cơ sở dữ liệu.
+- SQLite tích hợp trong Node.js: lưu trữ tài khoản nhân viên cục bộ.
 - Git và GitHub: Quản lý và lưu trữ mã nguồn dự án.
 
  Yêu cầu hệ thống
 
 - Windows 10 hoặc Windows 11.
-- Node.js và npm đã được cài đặt.
+- Node.js 22.13.0 trở lên và npm đã được cài đặt.
 - Visual Studio Code.
-- Microsoft SQL Server đã được cài đặt và khởi động.
-- SQL Server Management Studio (SSMS).
 - Trình duyệt Google Chrome hoặc Microsoft Edge.
 
  Cài đặt và chạy ứng dụng
@@ -75,54 +73,27 @@ code .
 Mở Terminal trong Visual Studio Code và chạy:
 
 ```bash
-npm install
+npm.cmd install
 ```
 
 Lệnh này sẽ cài đặt các thư viện được khai báo trong file `package.json`.
 
- Bước 4: Tạo cơ sở dữ liệu
+ Bước 4: Tạo quản trị viên đầu tiên
 
-1. Mở SQL Server Management Studio.
-2. Kết nối đến SQL Server.
-3. Mở file `schema.sql` trong dự án.
-4. Kiểm tra các câu lệnh SQL.
-5. Nhấn Execute để tạo cơ sở dữ liệu và các bảng.
+Tài khoản nhân viên được lưu trong SQLite tại `data/accounts.sqlite`; ứng dụng tự tạo thư mục và bảng khi khởi chạy. Không cần cài hoặc bật SQL Server.
 
- Bước 5: Cấu hình kết nối cơ sở dữ liệu
-
-Tạo file `.env` tại thư mục gốc dự án.
-
-Tham khảo cấu hình mẫu trong `.env.example` (nếu dự án có file này).
-
-Ví dụ:
-
-```env
-PORT=3000
-
-DB_SERVER=localhost
-DB_NAME=QuanLyBilliards
-DB_USER=sa
-DB_PASSWORD=your_password
-DB_ENCRYPT=false
-DB_TRUST_SERVER_CERTIFICATE=true
-```
-
-Lưu ý: Các biến môi trường cần được điều chỉnh theo cấu hình SQL Server và mã nguồn thực tế của dự án. Không chia sẻ mật khẩu hoặc đưa file `.env` lên GitHub.
-
- Bước 6: Khởi chạy ứng dụng
-
-Kiểm tra mục `scripts` trong file `package.json`.
-
-Nếu dự án sử dụng lệnh `start`:
+Sao chép `.env.example` thành `.env`, đặt `INITIAL_ADMIN_PASSWORD` (ít nhất 12 ký tự), rồi chạy:
 
 ```bash
-npm start
+npm.cmd run create-admin
 ```
 
-Nếu dự án sử dụng lệnh `dev`:
+Sau khi tạo thành công, xóa `INITIAL_ADMIN_PASSWORD` khỏi `.env`. Tên đăng nhập mặc định là `admin`, mật khẩu là mật khẩu bạn vừa đặt. Có thể đổi đường dẫn SQLite bằng `ACCOUNT_DATABASE_PATH`. Không chia sẻ `.env` hoặc đưa lên GitHub.
+
+ Bước 5: Khởi chạy ứng dụng
 
 ```bash
-npm run dev
+npm.cmd start
 ```
 
 Sau khi chạy thành công, mở trình duyệt và truy cập địa chỉ:
@@ -131,14 +102,9 @@ Sau khi chạy thành công, mở trình duyệt và truy cập địa chỉ:
 http://localhost:3000
 ```
 
-Cổng truy cập có thể thay đổi tùy theo cấu hình trong file `.env`.
+Cổng truy cập có thể thay đổi bằng `PORT` trong file `.env`.
 
-Đăng nhập thử với tài khoản phát triển mặc định:
-
-- Tài khoản: `admin`
-- Mật khẩu: `Billiards@123`
-
-Có thể đổi tài khoản bằng `DEMO_USERNAME` và `DEMO_PASSWORD` trong file `.env`. Tài khoản mặc định chỉ dành cho chạy thử trên máy cá nhân; không sử dụng khi triển khai thật.
+Sau khi đăng nhập bằng tài khoản quản trị viên, mở **Quản lý tài khoản** để tạo, sửa, khóa hoặc xóa tài khoản nhân viên. Vai trò gồm `admin`, `manager` và `staff`; chỉ `admin` được quản lý tài khoản. Không thể tự khóa/xóa tài khoản đang đăng nhập hoặc xóa quản trị viên đang hoạt động cuối cùng.
 
  Kiểm thử
 
@@ -208,7 +174,7 @@ Dự án vận dụng các kiến thức:
 - Chuẩn hóa cơ sở dữ liệu.
 - Lập trình giao diện HTML, CSS và JavaScript.
 - Xây dựng backend với Node.js và Express.js.
-- Kết nối và truy vấn cơ sở dữ liệu SQL Server.
+- Kết nối và truy vấn SQLite cho tài khoản nhân viên.
 - Thực hiện các thao tác CRUD.
 - Quản lý tài khoản và phân quyền người dùng.
 - Kiểm thử và sửa lỗi ứng dụng.
